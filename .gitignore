@@ -11,3 +11,7 @@ mlruns/
 models/*.joblib
 drift_reports/
 .DS_Store
+
+# DVC tracking exceptions
+data/raw/*
+!data/raw/*.dvc
