@@ -8,7 +8,6 @@ data/processed/*.csv
 !data/processed/.gitkeep
 mlruns/
 *.dvc.lock
-models/*.joblib
 drift_reports/
 .DS_Store
 
