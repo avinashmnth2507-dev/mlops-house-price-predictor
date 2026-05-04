@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.env
+venv/
+data/raw/*.csv
+data/processed/*.csv
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+mlruns/
+*.dvc.lock
+models/*.joblib
+drift_reports/
+.DS_Store
