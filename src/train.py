@@ -13,7 +13,7 @@ mlflow.set_tracking_uri("file:./mlruns")
 
 def load_data():
     df = pd.read_csv('data/raw/california_housing.csv')
-    X = df.drop('target', axis=1)
+    X = df.drop(['target', 'MedHouseVal'], axis=1)
     y = df['target']
     return train_test_split(X, y, test_size=0.2, random_state=42)
 
@@ -39,7 +39,7 @@ def main():
     study.optimize(lambda trial: objective(trial, X_train, y_train, X_test, y_test), n_trials=10)
     best_params = study.best_params
     
-    with mlflow.start_run(run_name="random_forest_tuned"):
+    with mlflow.start_run(run_name="random_forest_tuned_correct"):
         mlflow.log_params(best_params)
         
         model = RandomForestRegressor(**best_params, random_state=42, n_jobs=-1)
