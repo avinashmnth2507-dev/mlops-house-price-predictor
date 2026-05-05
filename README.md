@@ -20,7 +20,26 @@
 - ✅ Public container image on GitHub Container Registry
 
 ---
+## 🖼️ Demo
 
+### API Prediction
+![Prediction output](images/prediction.png)
+
+### MLflow Experiment Tracking
+![MLflow UI](images/mlflow-ui.png)
+
+### GitHub Actions CI/CD
+![GitHub Actions](images/github-actions.png)
+
+### Docker Container
+![Docker run](images/docker-demo.png)
+
+### Kubernetes Deployment
+![K8s pods](images/k8s-pods.png)
+![K8s prediction](images/k8s-prediction.png)
+
+### Published Container Image
+![GHCR package](images/ghcr-package.png)
 ## 📦 Quick Start
 
 ### 1. Clone the repository
