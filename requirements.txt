@@ -8,3 +8,6 @@ pandas==2.3.3
 pydantic==2.13.3
 scikit-learn==1.8.0
 uvicorn[standard]==0.46.0
+evidently==0.4.35
+prometheus-fastapi-instrumentator==7.0.0
+prometheus-fastapi-instrumentator==7.0.0

@@ -9,8 +9,12 @@ import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from drift_monitor import DriftMonitor, simulate_current_data
+from prometheus_fastapi_instrumentator import Instrumentator
 
 app = FastAPI(title="House Price Predictor", version="1.0")
+
+# Setup Prometheus instrumentation
+instrumentator = Instrumentator().instrument(app)
 
 class HouseFeatures(BaseModel):
     MedInc: float
@@ -36,6 +40,10 @@ def get_model():
             raise FileNotFoundError(f"Model not found at {model_path}")
         _model = joblib.load(model_path)
     return _model
+
+@app.on_event("startup")
+async def _startup():
+    instrumentator.expose(app)
 
 @app.get("/health")
 def health():
