@@ -3,6 +3,12 @@ from pydantic import BaseModel
 import joblib
 import numpy as np
 import os
+import sys
+
+# Add current directory to path so drift_monitor can be imported
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+from drift_monitor import DriftMonitor, simulate_current_data
 
 app = FastAPI(title="House Price Predictor", version="1.0")
 
@@ -19,6 +25,7 @@ class HouseFeatures(BaseModel):
 class PredictionResponse(BaseModel):
     predicted_price: float
 
+# Lazy load the model
 _model = None
 
 def get_model():
@@ -47,3 +54,9 @@ def predict(features: HouseFeatures):
         return {"predicted_price": float(prediction)}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
+
+@app.get("/drift/status")
+def drift_status():
+    monitor = DriftMonitor()
+    current = simulate_current_data()
+    return monitor.check_drift(current)
