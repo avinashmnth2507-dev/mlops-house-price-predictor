@@ -5,16 +5,21 @@ import numpy as np
 import os
 import sys
 
-# Add current directory to path so drift_monitor can be imported
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 from drift_monitor import DriftMonitor, simulate_current_data
 from prometheus_fastapi_instrumentator import Instrumentator
+from finops import FinOps
 
 app = FastAPI(title="House Price Predictor", version="1.0")
 
-# Setup Prometheus instrumentation
 instrumentator = Instrumentator().instrument(app)
+
+@app.on_event("startup")
+async def _startup():
+    instrumentator.expose(app)
+
+_finops = FinOps()
 
 class HouseFeatures(BaseModel):
     MedInc: float
@@ -29,7 +34,6 @@ class HouseFeatures(BaseModel):
 class PredictionResponse(BaseModel):
     predicted_price: float
 
-# Lazy load the model
 _model = None
 
 def get_model():
@@ -40,10 +44,6 @@ def get_model():
             raise FileNotFoundError(f"Model not found at {model_path}")
         _model = joblib.load(model_path)
     return _model
-
-@app.on_event("startup")
-async def _startup():
-    instrumentator.expose(app)
 
 @app.get("/health")
 def health():
@@ -59,6 +59,7 @@ def predict(features: HouseFeatures):
             features.Latitude, features.Longitude
         ]])
         prediction = model.predict(input_array)[0]
+        _finops.record_inference()
         return {"predicted_price": float(prediction)}
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -68,3 +69,7 @@ def drift_status():
     monitor = DriftMonitor()
     current = simulate_current_data()
     return monitor.check_drift(current)
+
+@app.get("/cost")
+def get_cost():
+    return _finops.get_summary()
