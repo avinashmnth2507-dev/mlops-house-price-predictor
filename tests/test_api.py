@@ -4,9 +4,10 @@ import numpy as np
 import sys
 import os
 
+# Add project root to path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-# Mock joblib.load to avoid real model file
+# Mock external dependencies before importing from src
 import joblib
 def mock_load(*args, **kwargs):
     class DummyModel:
@@ -15,16 +16,16 @@ def mock_load(*args, **kwargs):
     return DummyModel()
 joblib.load = mock_load
 
-# Mock drift_monitor
-import drift_monitor
-drift_monitor.DriftMonitor = lambda *args, **kwargs: type('Mock', (), {
+# Mock drift_monitor (import from src later, but we need to mock the module before import)
+import src.drift_monitor
+src.drift_monitor.DriftMonitor = lambda *args, **kwargs: type('Mock', (), {
     'check_drift': lambda self, df: {"drift_detected": False}
 })
-drift_monitor.simulate_current_data = lambda *args, **kwargs: None
+src.drift_monitor.simulate_current_data = lambda *args, **kwargs: None
 
 # Mock finops
-import finops
-finops.FinOps = lambda: type('Mock', (), {
+import src.finops
+src.finops.FinOps = lambda: type('Mock', (), {
     'record_inference': lambda self: None,
     'get_summary': lambda self: {"total_inferences": 0, "cost_per_inference_usd": 1e-6, "total_cost_usd": 0.0, "recommendations": []}
 })
@@ -46,7 +47,6 @@ def test_health():
     assert response.json() == {"status": "ok"}
 
 def test_predict():
-    # Ensure the internal _model is None so get_model() uses our mock
     api._model = None
     payload = {
         "MedInc": 3.5, "HouseAge": 30, "AveRooms": 5.0, "AveBedrms": 1.0,
