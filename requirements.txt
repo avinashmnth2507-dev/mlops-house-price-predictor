@@ -11,3 +11,4 @@ uvicorn[standard]==0.46.0
 evidently==0.4.35
 prometheus-fastapi-instrumentator==7.0.0
 prometheus-fastapi-instrumentator==7.0.0
+prometheus-fastapi-instrumentator==7.0.0
