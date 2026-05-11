@@ -26,9 +26,10 @@ Docker, orchestrates with Kubernetes, and automates everything with GitHub Actio
 
 ---
 
-## 📦 Quick Start
+## Quick Start
 
 ### 1. Clone the repository
+
 ```bash
 git clone https://github.com/avinashmnth2507-dev/mlops-house-price-predictor.git
 cd mlops-house-price-predictor
