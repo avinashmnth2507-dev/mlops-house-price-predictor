@@ -37,29 +37,29 @@ cd mlops-house-price-predictor
 ## 🖼️ Demo
 
 ### API Prediction
-![prediction](images/prediction.png)
+![prediction](https://raw.githubusercontent.com/avinashmnth2507-dev/mlops-house-price-predictor/master/images/prediction.png)
 
 ### MLflow Experiment Tracking
-![mlflow ui](images/mlflow-ui.png)
+![prediction](https://raw.githubusercontent.com/avinashmnth2507-dev/mlops-house-price-predictor/master/images/mlflow-ui.png)
 
 ### Drift Monitoring
-![drift output](images/drift_check_output.png)
+![prediction](https://raw.githubusercontent.com/avinashmnth2507-dev/mlops-house-price-predictor/master/images/drift_check_output.png)
 ![drift endpoint](images/drift_endpoint.png)
 
 ### GitHub Actions CI/CD
-![github actions](images/github-actions.png)
+![prediction](https://raw.githubusercontent.com/avinashmnth2507-dev/mlops-house-price-predictor/master/images/github-actions.png)
 
 ### Prometheus + Grafana Monitoring
-![Grafana datasource](images/grafana_datasource.png)
-![Grafana dashboard](images/grafana_dashboard.png)
-![Prometheus service discovery](images/prometheus_service_discovery.png)
+![prediction](https://raw.githubusercontent.com/avinashmnth2507-dev/mlops-house-price-predictor/master/images/grafana_datasource.png)
+![prediction](https://raw.githubusercontent.com/avinashmnth2507-dev/mlops-house-price-predictor/master/images/grafana_dashboard.png)
+![prediction](https://raw.githubusercontent.com/avinashmnth2507-dev/mlops-house-price-predictor/master/images/prometheus_service_discovery.png)
 
 ### FinOps Cost Tracking
-![cost endpoint](images/finops_cost.png)
+![prediction](https://raw.githubusercontent.com/avinashmnth2507-dev/mlops-house-price-predictor/master/images/finops_cost.png)
 
 ### Kubernetes Deployment
-![k8s pods](images/k8s-pods.png)
-![k8s prediction](images/k8s-prediction.png)
+![prediction](https://raw.githubusercontent.com/avinashmnth2507-dev/mlops-house-price-predictor/master/images/k8s-pods.png)
+![prediction](https://raw.githubusercontent.com/avinashmnth2507-dev/mlops-house-price-predictor/master/images/k8s-prediction.png)
 
 ### Published Container Image
-![GHCR package](images/ghcr-package.png)
+![prediction](https://raw.githubusercontent.com/avinashmnth2507-dev/mlops-house-price-predictor/master/images/ghcr-package.png)
