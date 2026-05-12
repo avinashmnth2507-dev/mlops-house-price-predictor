@@ -101,7 +101,7 @@ FastAPI endpoint serving real-time house price predictions.
 
 Track model experiments, metrics, parameters, and artifacts.
 
-![MLflow Tracking](images/mlflow.png)
+![MLflow Tracking](images/mlflow-ui.png)
 
 ---
 
@@ -109,7 +109,7 @@ Track model experiments, metrics, parameters, and artifacts.
 
 PSI-based model drift monitoring and production validation.
 
-![Drift Monitoring](images/drift.png)
+![Drift Monitoring](images/drift_check_output.png)
 
 ### Drift Detection Endpoint
 
