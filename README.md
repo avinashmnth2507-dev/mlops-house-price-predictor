@@ -169,12 +169,11 @@ Docker image published to GitHub Container Registry.
 
 ---
 
-# 🐳 Docker
+## 🐳 Docker
 
-## Build Docker Image
-
+### Build the image
 ```bash
-docker build -t mlops-house-price-predictor .
+docker build -t house-price-api:latest .
 ```
 
 ## Run Docker Container
@@ -185,17 +184,15 @@ docker run -p 8000:8000 mlops-house-price-predictor
 
 ---
 
-# ☸️ Kubernetes Deployment
+## ☸️ Kubernetes Deployment
 
-Apply Kubernetes manifests:
+> Requires a running Kubernetes cluster (e.g., Minikube).
 
+Apply the manifests:
 ```bash
 kubectl apply -f k8s/
-```
-
 Check pods:
 
-```bash
 kubectl get pods
 ```
 
@@ -217,24 +214,14 @@ http://127.0.0.1:5000
 
 ---
 
-# 📡 Monitoring
+## 📡 Monitoring
 
-## Prometheus Metrics
+> Prometheus and Grafana are deployed via Helm in the `monitoring` namespace. See 
+[ARCHITECTURE.md](ARCHITECTURE.md) for details.
 
-```bash
-/metrics
-```
-
-## Drift Monitoring Endpoint
-
-```bash
-/drift/status
-```
-
-## FinOps Endpoint
-
-```bash
-/cost
+- **Prometheus metrics**: `/metrics`
+- **Drift monitoring**: `/drift/status`
+- **FinOps cost**: `/cost`
 ```
 
 ---
