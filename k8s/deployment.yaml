@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: ghcr.io/avinashmnth2507-dev/mlops-house-price-predictor:latest
+        image: ghcr.io/avinashmnth2507-dev/house-price-api:latest
         ports:
         - containerPort: 8000
         env:
