@@ -179,7 +179,7 @@ docker build -t house-price-api:latest .
 ## Run Docker Container
 
 ```bash
-docker run -p 8000:8000 mlops-house-price-predictor
+docker run --rm  -p 8000:8000 house-price-api:latest
 ```
 
 ---
