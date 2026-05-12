@@ -191,8 +191,11 @@ docker run --rm  -p 8000:8000 house-price-api:latest
 Apply the manifests:
 ```bash
 kubectl apply -f k8s/
+```
+
 Check pods:
 
+```bash
 kubectl get pods
 ```
 
