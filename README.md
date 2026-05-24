@@ -129,7 +129,7 @@ Automated testing, Docker build, and deployment pipeline.
 
 ### Grafana Datasource
 
-![Grafana Datasource](images/grafana_datasource.png)
+![Grafana Data Source Connected](images/grafana_datasource_success.png)
 
 ### Grafana Dashboard
 
