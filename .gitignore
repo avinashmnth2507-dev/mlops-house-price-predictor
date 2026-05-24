@@ -16,3 +16,6 @@ data/raw/*
 !data/raw/*.dvc
 !models/model.joblib
 drift_report.json
+docker-compose.yml
+prometheus.yml
+scikit_learn_data/
