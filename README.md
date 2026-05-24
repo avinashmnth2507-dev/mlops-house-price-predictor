@@ -133,11 +133,11 @@ Automated testing, Docker build, and deployment pipeline.
 
 ### Grafana Dashboard
 
-![Grafana Dashboard](images/grafana_dashboard.png)
+![Grafana Dashboard](images/grafana_working.png)
 
 ### Prometheus Service Discovery
 
-![Prometheus Discovery](images/prometheus_service_discovery.png)
+![Prometheus Targets](images/prometheus_targets_up.png)
 
 ---
 
